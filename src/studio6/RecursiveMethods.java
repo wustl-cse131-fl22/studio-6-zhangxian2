@@ -59,7 +59,15 @@ public class RecursiveMethods {
 	 */
 	public static void circlesUponCircles(double xCenter, double yCenter, double radius,
 			double radiusMinimumDrawingThreshold) {
-		
+		if (radius > radiusMinimumDrawingThreshold) {
+			StdDraw.setPenColor(StdDraw.BLACK);
+			StdDraw.circle(xCenter, yCenter, radius);
+			circlesUponCircles((xCenter + radius), (yCenter), (radius / 3), radiusMinimumDrawingThreshold);
+			circlesUponCircles((xCenter - radius), (yCenter), (radius / 3), radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter, (yCenter + radius), (radius / 3), radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter, (yCenter - radius), (radius / 3), radiusMinimumDrawingThreshold);
+			
+		}
 		// FIXME
 	}
 
